@@ -21,7 +21,6 @@ http.createServer((req, res) => {
                 }
             });
         } else if (parsed.pathname === '/items.json') {
-            // 🔄 Always read fresh
             const itemsJson = JSON.parse(fs.readFileSync('./items.json', 'utf-8'));
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(itemsJson));
@@ -41,6 +40,13 @@ http.createServer((req, res) => {
         }
 
         const itemsJson = JSON.parse(fs.readFileSync('./items.json', 'utf-8'));
+
+        // ✅ Add safety check for item limit
+        if (itemsJson.length >= 100) {
+            res.statusCode = 400;
+            res.end('Item limit reached. Please delete some items before adding more.');
+            return;
+        }
 
         const newItem = {
             id: new Date().toISOString(),
@@ -116,5 +122,5 @@ http.createServer((req, res) => {
 
 }).listen(process.env.PORT || 3000, () => {
     console.log(`✅ Server running on port ${process.env.PORT || 3000}`);
-  });
-  
+});
+

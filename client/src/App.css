@@ -1,0 +1,56 @@
+body {
+  background-color: #fdf6e3;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.item-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.item-card h5 {
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #d63384;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.item-card button {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+form {
+  text-align: left;
+  margin-top: 40px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form .form-control {
+  margin-bottom: 10px;
+}
+
